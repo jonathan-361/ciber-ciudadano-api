@@ -17,6 +17,23 @@ const UserService = {
 
     return await UserModel.create(newUser);
   },
+
+  async login(email, password) {
+    const user = await UserModel.findByEmail(email);
+
+    if (!user) {
+      throw new Error("Credenciales inválidas");
+    }
+
+    const isValidPassword = await bcrypt.compare(password, user.password);
+
+    if (!isValidPassword) {
+      throw new Error("Credenciales inválidas");
+    }
+
+    const { password: _, ...userWithoutPassword } = user;
+    return userWithoutPassword;
+  },
 };
 
 module.exports = UserService;

@@ -19,6 +19,16 @@ exports.register = async (req, res) => {
   }
 };
 
+exports.login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const user = await UserService.login(email, password);
+    res.json(user);
+  } catch (error) {
+    res.status(401).json({ message: error.message });
+  }
+};
+
 exports.getUsers = async (req, res) => {
   try {
     const users = await UserModel.getAll();
