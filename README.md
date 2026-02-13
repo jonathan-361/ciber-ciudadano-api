@@ -2,6 +2,16 @@
 
 **Nota:** El archivo llamado _ciber_ciudadano.sql_ contiene el script para crear la base de datos y la tabla necesaria para trabajar. Está trabajado en MySQL y utilicé en mi caso XAMPP para realizar el trabajo.
 
+**Nota 2:** Se necesita un archivos _".env"_ que deberá contener:
+
+```
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=ciber_ciudadano
+PORT=3000
+```
+
 - [Repositorio de FrontEnd](https://github.com/jonathan-361/ciber-ciudadano.git)
 
 ---
